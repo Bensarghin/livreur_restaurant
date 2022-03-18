@@ -85,7 +85,9 @@ Route::middleware('auth')->group(function(){
     });
 
     Route::get('/rest', [restaurant_vController::class,'index'])->name('list'); 
-    Route::get('/commande/{id}', [commande_vController::class,'store'])->name('c_insert'); 
+    Route::get('/commande/{id}/{produit}', [commande_vController::class,'store'])->name('c_insert'); 
+    Route::get('/add_to_card/{produit}', [produit_vController::class,'AddToCart'])->name('AddToCart'); 
+    Route::get('/delete_card', [produit_vController::class,'destroy'])->name('deleteCard'); 
 
 });
 //end visitors routes
